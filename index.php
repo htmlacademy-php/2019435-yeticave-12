@@ -34,6 +34,18 @@ $user_name = ''; // укажите здесь ваше имя
     </div>
 </header>
 
+<?php
+function priceFormat($price) {
+    $price = ceil($price);
+    if ($price < 1000) {
+        $formatted = $price;
+    } else {
+        $formatted = number_format($price, 0, '', ' ');
+    }
+    return $formatted;
+}
+?>
+
 <main class="container">
     <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
@@ -61,7 +73,7 @@ $user_name = ''; // укажите здесь ваше имя
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена<b class="rub">р</b></span>
+                            <span class="lot__cost"><?= priceFormat(49812,01) ?> &#8381</span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
