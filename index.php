@@ -40,7 +40,7 @@ function priceFormat($price) {
     if ($price < 1000) {
         $formatted = $price;
     } else {
-        $formatted = number_format($price, 0, '', ' ');
+        $formatted = number_format($price, 0, '', ' ') . " &#8381";
     }
     return $formatted;
 }
@@ -73,7 +73,7 @@ function priceFormat($price) {
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= priceFormat(49812,01) ?> &#8381</span>
+                            <span class="lot__cost"><?= priceFormat(49812,01) ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
