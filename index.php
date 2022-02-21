@@ -35,14 +35,15 @@ $user_name = ''; // укажите здесь ваше имя
 </header>
 
 <?php
-function priceFormat($price) {
+function priceFormat($price): string
+{
     $price = ceil($price);
     if ($price < 1000) {
         $formatted = $price;
     } else {
-        $formatted = number_format($price, 0, '', ' ') . " &#8381";
+        $formatted = number_format($price, 0, '', ' ');
     }
-    return $formatted;
+    return $formatted . ' &#8381';
 }
 ?>
 
