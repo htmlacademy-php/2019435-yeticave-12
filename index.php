@@ -90,8 +90,20 @@ $adverts = [
         'price' => '5400',
         'url' => 'img/lot-6.jpg'
     ]
-    ]
+    ];
+
+function priceFormat($price): string
+{
+    $price = ceil($price);
+    if ($price < 1000) {
+        $formatted = $price;
+    } else {
+        $formatted = number_format($price, 0, '', ' ');
+    }
+    return $formatted . ' &#8381';
+}
 ?>
+
 
 <main class="container">
     <section class="promo">
@@ -99,11 +111,11 @@ $adverts = [
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categories as $category): ?>
+        <?php foreach ($categories as $category): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?= $category ?></a>
             </li>
-            <? endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
@@ -112,7 +124,7 @@ $adverts = [
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
-            <?php foreach ($adverts as $advert): ?>
+        <?php foreach ($adverts as $advert): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?= $advert['url'] ?>" width="350" height="260" alt="">
@@ -123,7 +135,7 @@ $adverts = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= $advert['price'] ?><b class="rub"></b></span>
+                            <span class="lot__cost"><?= priceFormat($advert['price']) ?><b class="rub"></b></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -131,7 +143,7 @@ $adverts = [
                     </div>
                 </div>
             </li>
-            <? endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </section>
 </main>
@@ -141,11 +153,11 @@ $adverts = [
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categories as $category): ?>
+        <?php foreach ($categories as $category): ?>
             <li class="nav__item">
                 <a href="pages/all-lots.html"><?= $category ?></a>
             </li>
-            <? endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
