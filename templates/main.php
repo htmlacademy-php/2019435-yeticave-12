@@ -19,7 +19,7 @@
         <?php foreach ($adverts as $advert): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="<?= ($advert['url']) ?>" width="350" height="260" alt="">
+                    <img src="<?= $advert['url'] ?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
                     <span class="lot__category"><?= htmlspecialchars($advert['category']) ?></span>
