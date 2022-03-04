@@ -34,11 +34,11 @@
                         ?>
                         <?php if ($timer[0]>=1): ?>
                         <div class="lot__timer timer">
-                            <?= implode(":", timeLeft(htmlspecialchars($advert['close']))) ?>
+                            <?= implode(":", $timer) ?>
                         </div>
                         <?php else: ?>
                         <div class="lot__timer timer timer--finishing">
-                            <?= implode(":", timeLeft(htmlspecialchars($advert['close']))) ?>
+                            <?= implode(":", $timer) ?>
                         </div>
                         <?php endif ?>
                     </div>
