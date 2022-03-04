@@ -143,4 +143,20 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
-
+/**
+ * Принимает дату в виде string, возвращает оставшееся время формата ЧЧ:ММ в виде array
+ */
+function timeLeft(string $date) : array
+{
+    $date_now = time();
+    $date_end = strtotime($date);
+    $date_diff = $date_end - $date_now;
+    if ($date_diff > 0) {
+        $hours_left = floor($date_diff/3600);
+        $minutes_left = floor(($date_diff - $hours_left*3600)/60);
+    } else {
+        $hours_left = 0;
+        $minutes_left = 0;
+    }
+    return array(str_pad($hours_left, 2, "0", STR_PAD_LEFT), str_pad($minutes_left, 2, "0", STR_PAD_LEFT));
+}

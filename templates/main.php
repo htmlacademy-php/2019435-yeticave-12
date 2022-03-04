@@ -29,9 +29,18 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?= priceFormat(htmlspecialchars($advert['price'])) ?><b class="rub"></b></span>
                         </div>
+                        <?php
+                        $timer = timeLeft(htmlspecialchars($advert['close']));
+                        ?>
+                        <?php if ($timer[0]>=1): ?>
                         <div class="lot__timer timer">
-                            12:23
+                            <?= implode(":", $timer) ?>
                         </div>
+                        <?php else: ?>
+                        <div class="lot__timer timer timer--finishing">
+                            <?= implode(":", $timer) ?>
+                        </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </li>
