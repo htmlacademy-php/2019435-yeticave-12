@@ -54,13 +54,13 @@ INSERT INTO bid (date, price, user_id, lot_id)
 SELECT name FROM category;
 
 -- Показываем открытые лоты, при этом берем текущую цену из таблицы ставок,название категории из таблицы категории
-SELECT c.name, l.price, img_source, b.price, c.name FROM lot l
+SELECT l.name AS lot_name, l.price AS atart_price, img_source, b.price AS bid_price, c.name AS category_name FROM lot l
   JOIN bid b ON l.id = b.lot_id
   JOIN category c on c.id = l.category_id
   WHERE winner_id IS NULL;
 
 -- Показываем лот по его ID (к примеру, 2), а также название категории из таблицы категорий, к которой принадлежит лот
-SELECT l.name, c.name FROM lot l
+SELECT l.name AS lot_name, c.name AS category_name FROM lot l
   JOIN category c on c.id = l.category_id
   WHERE l.id = 2;
 
