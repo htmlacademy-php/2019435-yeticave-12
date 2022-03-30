@@ -7,7 +7,7 @@ USE yeti;
 CREATE TABLE category
 (
   id          INT(11) AUTO_INCREMENT PRIMARY KEY,
-  name        CHAR(10) NOT NULL,
+  name        CHAR(15) NOT NULL,
   symbol_code CHAR(10) UNIQUE NOT NULL
 );
 
